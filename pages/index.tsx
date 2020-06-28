@@ -43,7 +43,7 @@ const InstallSection = () => (
 
     <h3>Homebrew (Mac)</h3>
     <Code language={"bash"} code={`$ brew tap protop-io/protop
-$ brew install protop`}/>
+$ brew install protop`} />
 
     <h3>From the source (Mac/Linux/Windows)</h3>
     <Code language={"bash"} code={`$ git clone https://github.com/protop-io/protop.git
@@ -88,6 +88,10 @@ const Home = () => {
     <Page beforeNavBar={<GRPCConf2020Banner />}>
       <Head>
         <title>protop</title>
+        <meta property="og:title" content="protop" />
+        <meta property="og:image" content="/logo.png" />
+        <meta property="og:url" content="https://protop.io" />
+        <meta property="og:description" content="A package manager for protocol buffers." />
       </Head>
       <main>
         <HeroBannerSection />
