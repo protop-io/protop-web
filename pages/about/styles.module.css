@@ -1,0 +1,12 @@
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 48px;
+}
+.logo {
+  position: relative;
+  width: calc(100% - 48px);
+  max-width: 500px;
+}

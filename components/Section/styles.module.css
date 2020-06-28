@@ -1,0 +1,22 @@
+
+.sectionContent h2,
+.sectionContent h3 {
+  padding-top: 24px;
+}
+.sectionContent p {
+  padding-top: 16px;
+}
+
+.section {
+  padding: 24px 0 0;
+}
+.section:last-of-type {
+  padding-bottom: 24px;
+}
+
+.sectionContent {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+}

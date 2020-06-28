@@ -1,0 +1,32 @@
+.menu {
+  position: relative;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  padding: 16px;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+@media screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+}
+
+.menuItemGroup {
+  padding: 16px 0;
+}
+.menuItemGroupTitle {
+  padding: 4px 8px;
+}
+.menuItem {
+  padding: 8px;
+  border-radius: 4px;
+  margin: 1px 0;
+}
+.menuItem:hover:not(.currentMenuItem) {
+  background: rgb(225, 225, 225);
+}
+.currentMenuItem {
+  background: rgb(225, 225, 225);
+}

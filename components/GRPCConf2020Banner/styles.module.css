@@ -1,0 +1,8 @@
+.banner {
+  background: rgb(19,61,96);
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}

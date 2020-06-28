@@ -1,0 +1,55 @@
+.nav {
+  position: relative;
+  height: 80px;
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px solid rgb(235, 235, 235);
+  z-index: 10;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.logo {
+  position: relative;
+  height: 32px;
+}
+
+.linksContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding-right: 48px;
+}
+
+.linksContainer > ul {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linksContainer > ul > li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.linksContainer > ul > li:not(:last-of-type) {
+  padding-right: 32px;
+}
+
+.linksContainer > ul > li > a > img {
+  height: 32px;
+}

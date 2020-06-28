@@ -1,0 +1,112 @@
+/* BEGIN css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, main, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+	display: block;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button {
+	outline: unset;
+	border: unset;
+	cursor: pointer;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a, a:visited {
+	text-decoration: none;
+}
+a * {
+	cursor: pointer;
+}
+/* END css reset */
+
+:root {
+	font-size: 16px;
+}
+p {
+	line-height: 1.4em;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+h2 {
+	font-size: 1.8em;
+}
+h3 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+}
+h5 {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+h6 {
+	font-size: 0.8em;
+	font-weight: bold;
+}
+em {
+	font-weight: bold;
+}
+/* Make links colored, but only in the main content. */
+main a {
+	color: rgb(19,61,96);
+}
+pre {
+	overflow: auto;
+}
+pre *, code {
+	font-family: 'Menlo', 'Monaco', 'Lucida Console', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+	font-size: 0.9em;
+}
+i {
+	font-style: italic;
+}
