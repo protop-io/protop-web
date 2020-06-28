@@ -91,7 +91,7 @@ const Home = () => {
         <meta property="og:title" content="protop" />
         <meta property="og:type" content="website" />
 
-        <meta property="og:image" content="https://protop.io/logo.png" />
+        <meta property="og:image" content="https://protop.io/logo_with_blue_background_120x63.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:alt" content="protop logo" />
 
