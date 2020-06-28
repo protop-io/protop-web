@@ -8,12 +8,12 @@ export const Page = (props) => {
   return (
     <Fragment>
       <Head>
-        <link 
-          rel="icon" 
-          href="/p_logo_with_width.png"
+        <link
+          rel="icon"
+          href="/favicon.ico"
         />
-        <link 
-          rel="stylesheet" 
+        <link
+          rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>

@@ -14,7 +14,6 @@ interface CodeProps {
 }
 
 export const Code = ({ code, language }: CodeProps) => {
-  console.log(language)
   return (
     <Highlight {...defaultProps} 
       code={code.trim()} 
