@@ -90,7 +90,11 @@ const Home = () => {
         <title>protop</title>
         <meta property="og:title" content="protop" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://protop.io/logo.png" />
+        <meta property="og:image:url" content="https://protop.io/logo.png" />
+        <meta property="og:image:secure_url" content="https://protop.io/logo.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:height" content="200" />
+        <meta property="og:image:alt" content="protop logo" />
         <meta property="og:url" content="https://protop.io" />
         <meta property="og:description" content="A package manager for protocol buffers." />
       </Head>
