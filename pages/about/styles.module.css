@@ -3,10 +3,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-top: 48px;
 }
 .logo {
+  /* align-self: center; */
   position: relative;
   width: calc(100% - 48px);
   max-width: 500px;
+  height: auto;
 }

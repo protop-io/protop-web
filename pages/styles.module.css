@@ -55,6 +55,12 @@
   font-size: 4.8em;
 }
 
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 3.2em;
+  }
+}
+
 .cardsContainer {
   padding: 16px 0;
   flex: 1;
@@ -67,14 +73,15 @@
 .cards {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 48px 24px 24px;
+  padding: 48px 0 24px;
 }
 
 .card {
-  margin: 8px;
-  flex-basis: 42%;
+  margin: 8px 0;
+  flex-basis: 45%;
+  min-width: 320px;
   padding: 16px;
   text-align: left;
   color: inherit;

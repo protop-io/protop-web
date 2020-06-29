@@ -1,9 +1,13 @@
 .nav {
   position: relative;
-  height: 80px;
   background-color: rgb(250, 250, 250);
-  border-bottom: 1px solid rgb(235, 235, 235);
   z-index: 10;
+}
+
+.mainNavContainer {
+  position: relative;
+  height: 80px;
+  border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .logoContainer {
@@ -18,17 +22,52 @@
   align-items: center;
   padding: 16px;
 }
+
+@media screen and (max-width: 800px) {
+  .logoContainer {
+    width: 160px;
+  }
+}
+
 .logo {
   position: relative;
   height: 32px;
 }
 
 .linksContainer {
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
   padding-right: 48px;
+}
+
+.drawerButton {
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding-right: 48px;
+}
+
+.menuIcon {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menuIcon > div {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgb(19,61,96);
 }
 
 .linksContainer > ul {
@@ -52,4 +91,53 @@
 
 .linksContainer > ul > li > a > img {
   height: 32px;
+}
+
+.mobileNavigationContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  background: white;
+  overflow: hidden;
+}
+.mobileNavigationOpen {
+  height: auto;
+}
+.mobileNavigationDrawer {
+  width: 100%;
+}
+.mobileNavigationDrawer ul li {
+  height: 48px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  width: 100%;
+  cursor: pointer;
+}
+.mobileNavigationDrawer ul li:hover {
+  background: rgb(235, 235, 235);
+}
+.mobileNavigationDrawer ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+}
+.mobileNavigationDrawer > ul > li > a > img {
+  height: 32px;
+}
+
+@media screen and (max-width: 799px) {
+  .linksContainer {
+    display: none;
+  }
+  .drawerButton {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .mobileNavigationContainer {
+    height: 0;
+  }
 }
