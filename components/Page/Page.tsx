@@ -17,9 +17,8 @@ type PageProps = PropsWithChildren<{
   description: string
 }>
 
-const isProduction = NODE_ENV === "production"
-
 export const Page = ({ title, description, children, beforeNavBar }: PageProps) => {
+  const isProduction = NODE_ENV === "production"
   const { pathname } = useRouter()
 
   useEffect(() => {
