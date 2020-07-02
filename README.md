@@ -1,6 +1,6 @@
 This is the source code for the [protop.io](https://protop.io) website, built with [Next.js](https://nextjs.org/) project.
 
-## Getting Started
+## Getting Started with Development
 
 First, run the development server:
 
@@ -9,3 +9,5 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+New to Typescript (or to using it with React)? [This might help.](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet)

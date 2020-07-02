@@ -76,10 +76,10 @@ const Example = () => (
 )
 
 export default () => (
-  <DocsPage currentMenuItem={MenuItem.GRADLE_PLUGIN}>
-    <Head>
-      <title>protop Gradle Plugin</title>
-    </Head>
+  <DocsPage
+    title="protop Gradle Plugin"
+    description="Gradle plugin for using protop in Gradle projects."
+    currentMenuItem={MenuItem.GRADLE_PLUGIN}>
     <Introduction />
     <Installation />
     <Example />

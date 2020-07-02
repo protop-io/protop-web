@@ -1,6 +1,4 @@
-import Head from 'next/head'
 import { Page } from '../components/Page'
-
 import styles from './styles.module.css'
 import Link from 'next/link';
 import { Section } from '../components/Section';
@@ -19,10 +17,10 @@ const HeroBannerSection = () => (
       keep protos seperate from their implementations.
     </p>
 
-    <div>
+    <div className={styles.bannerLinkContainer}>
       <Link href="/docs/protop#getting-started">
         <a>
-          <button className={styles.button}>GET STARTED</button>
+          <button className={styles.bannerButton}>GET STARTED</button>
         </a>
       </Link>
     </div>
@@ -33,7 +31,7 @@ const InstallSection = () => (
   <Section>
     <h2 id="install">Install</h2>
     <p>
-      <em>protop</em> is offered as a standalone executable.
+      protop is offered as a standalone executable.
       You can install it using the instructions below (don't worry;{' '}
       <Link href="/about#roadmap">
         <a>we plan on adding more options</a>
@@ -56,7 +54,7 @@ $ ./install.sh`} />
 
 const Explanation = () => (
   <Section>
-    graphic explanation here...
+  // TODO graphic explanation here...
   </Section>
 )
 
@@ -67,8 +65,8 @@ const CardsSection = () => (
         href="/docs/protop"
         className={styles.card}
       >
-        <h3>Read the docs &rarr;</h3>
-        <p>Find in-depth information about protop features and the API.</p>
+        <h3 className={styles.cardTitle}>Read the docs &rarr;</h3>
+        <p className={styles.cardDescription}>Find in-depth information about protop features and the API.</p>
       </a>
       <a
         href="https://medium.com/@jefferyshivers/create-a-public-api-with-grpc-ade4a8bfd1fc"
@@ -76,28 +74,20 @@ const CardsSection = () => (
         target="_blank"
         rel="noopener"
       >
-        <h3>Follow the tutorial &rarr;</h3>
-        <p>Read how to build a public API using gRPC with protop in under 10 minutes.</p>
+        <h3 className={styles.cardTitle}>Follow the tutorial &rarr;</h3>
+        <p className={styles.cardDescription}>Read how to build a public API using gRPC with protop in under 10 minutes.</p>
       </a>
     </div>
   </Section>
 )
 
-const Home = () => {
+export default () => {
   return (
-    <Page beforeNavBar={<GRPCConf2020Banner />}>
-      <Head>
-        <title>protop</title>
-        <meta property="og:title" content="protop" />
-        <meta property="og:type" content="website" />
-
-        <meta property="og:image" content="https://protop.io/logo_with_blue_background_120x63.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:alt" content="protop logo" />
-
-        <meta property="og:url" content="https://protop.io" />
-        <meta property="og:description" content="A package manager for protocol buffers." />
-      </Head>
+    <Page
+      title="protop"
+      description="A package manager for protocol buffers."
+      beforeNavBar={<GRPCConf2020Banner />}
+    >
       <main>
         <HeroBannerSection />
         <InstallSection />
@@ -107,5 +97,3 @@ const Home = () => {
     </Page>
   )
 }
-
-export default Home

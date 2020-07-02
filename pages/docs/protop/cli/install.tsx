@@ -37,10 +37,10 @@ const Installation = () => (
 )
 
 export default () => (
-  <DocsPage currentMenuItem={MenuItem.CLI_INSTALL}>
-    <Head>
-      <title>protop CLI Installation</title>
-    </Head>
+  <DocsPage
+    title="protop Installation"
+    description="Learn how to install the protop CLI."
+    currentMenuItem={MenuItem.CLI_INSTALL}>
     <Installation />
   </DocsPage>
 )

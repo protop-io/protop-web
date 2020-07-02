@@ -3,13 +3,15 @@ import { DocsMenu, MenuItem } from "../DocsMenu"
 import { PropsWithChildren } from "react"
 import styles from "./styles.module.css"
 
-export type DocsPageProps = {
+export type DocsPageProps = PropsWithChildren<{
   currentMenuItem?: MenuItem
-}
+  title: string
+  description: string
+}>
 
-export const DocsPage = ({ children, currentMenuItem }: PropsWithChildren<DocsPageProps>) => {
+export const DocsPage = ({ title, description, children, currentMenuItem }: DocsPageProps) => {
   return (
-    <Page>
+    <Page title={title} description={description}>
       <div className={styles.page}>
         <DocsMenu currentMenuItem={currentMenuItem} />
         <main className={styles.content}>

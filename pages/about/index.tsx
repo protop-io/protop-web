@@ -1,16 +1,14 @@
 import { Page } from "../../components/Page";
 import styles from "./styles.module.css"
-import Head from "next/head";
 import { Section } from "../../components/Section";
 import { GRPCConf2020Banner } from "../../components/GRPCConf2020Banner";
-import Link from "next/link";
 import EmphasizedNote from "../../components/EmphasizedNote/EmphasizedNote";
 import { Code } from "../../components/Code";
 
 const Mission = () => (
   <Section>
     <EmphasizedNote>
-      Protop is open-sourced and focused on a simple mission:{' '}
+      protop is open-sourced and focused on a simple mission:{' '}
       <em>to make APIs easier to create and use</em>.
     </EmphasizedNote>
     <div className={styles.logoContainer}>
@@ -103,10 +101,10 @@ const Contact = () => (
 
 export default () => {
   return (
-    <Page beforeNavBar={<GRPCConf2020Banner />}>
-      <Head>
-        <title>About protop</title>
-      </Head>
+    <Page
+      title="About protop"
+      description="Read about protop, the package manager for protobufs."
+      beforeNavBar={<GRPCConf2020Banner />}>
       <main>
         <Mission />
         <History />

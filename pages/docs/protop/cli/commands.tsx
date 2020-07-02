@@ -15,9 +15,9 @@ type CommandProps = {
 
 const Subcommand = ({ title, description, usage }: CommandProps) => (
   <div className={styles.subcommand}>
-    <h4>{title}</h4>
-    <p>{description}</p>
-    <h5>Usage</h5>
+    <h4 className={styles.subcommandTitle}>{title}</h4>
+    <p className={styles.subcommandDescription}>{description}</p>
+    <h5 className={styles.subcommandDetailTitle}>Usage</h5>
     <Code code={usage} language={"bash"} />
   </div>
 )
@@ -131,10 +131,10 @@ Commands:
 
 export default () => {
   return (
-    <DocsPage currentMenuItem={MenuItem.CLI_COMMANDS}>
-      <Head>
-        <title>protop CLI Documentation</title>
-      </Head>
+    <DocsPage
+      title="protop CLI Commands"
+      description="Detailed documentation of the protop CLI."
+      currentMenuItem={MenuItem.CLI_COMMANDS}>
       <Commands />
     </DocsPage>
   )

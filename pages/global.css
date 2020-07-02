@@ -69,6 +69,7 @@ a * {
 }
 p {
 	line-height: 1.4em;
+	padding-top: 16px;
 }
 
 h1 {
@@ -76,8 +77,10 @@ h1 {
 }
 h2 {
 	font-size: 1.8em;
+	padding-top: 24px;
 }
 h3 {
+	padding-top: 24px;
 	font-size: 1.1em;
 	font-weight: bold;
 }

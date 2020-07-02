@@ -1,41 +1,37 @@
+/* commands */
+
 .command {
   padding-top: 36px;
 }
-
 .subcommand {
   padding-top: 16px;
   padding-left: 16px;
 }
-.subcommand p {
+.subcommandDescription {
   padding-top: 8px;
 }
-.subcommand h4 {
+.subcommandTitle {
   padding-top: 8px;
 }
-.subcommand h5 {
+.subcommandDetailTitle {
   padding-top: 8px;
 }
+
+/* protop.json */
 
 .manifestContainer {
   padding: 8px 0;
   border-radius: 4px;
 }
-.manifestContainer h3:first-of-type {
-  padding-top: 4px;
-}
-.manifestContainer h3 {
+.manifestPropertyTitle {
   /* TODO use css composition */
   font-family: 'Menlo', 'Monaco', 'Lucida Console', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
+.manifestPropertyTitle:first-of-type {
+  padding-top: 4px;
+}
 .manifestProperty {
   padding: 4px 16px;
-}
-.manifestProperty p {
-  padding: 0;
-  margin: 1px;
-}
-.manifestProperty p:first-of-type {
-  padding-bottom: 4px;
 }
 .manifestPropertyDetails {
   padding-top: 8px;
@@ -43,6 +39,13 @@
 }
 .manifestPropertyDetails h4 {
   padding-top: 8px;
+}
+.manifestPropertyDetail {
+  padding: 0;
+  margin: 1px;
+}
+.manifestPropertyDetail:first-of-type {
+  padding-bottom: 4px;
 }
 .jsonToken {
   font-weight: bold;

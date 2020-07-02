@@ -5,10 +5,10 @@ import EmphasizedNote from "../../../../components/EmphasizedNote/EmphasizedNote
 import Head from "next/head"
 
 export default () => (
-  <DocsPage currentMenuItem={MenuItem.HELLO_WORLD_TUTORIAL}>
-    <Head>
-      <title>protop "Hello World" Tutorial</title>
-    </Head>
+  <DocsPage
+    title={`protop "Hello World" Tutorial`}
+    description="Learn how to use protop in a minimal Hello World project."
+    currentMenuItem={MenuItem.HELLO_WORLD_TUTORIAL}>
     <Section>
       <h1>Hello World</h1>
       <EmphasizedNote>
