@@ -3,6 +3,10 @@ import { NavBar } from "../NavBar"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import LogRocket from 'logrocket';
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const { NODE_ENV } = publicRuntimeConfig
 
 import styles from "./styles.module.css"
 
@@ -14,7 +18,7 @@ type PageProps = PropsWithChildren<{
 
 export const Page = ({ title, description, children, beforeNavBar }: PageProps) => {
   useEffect(() => {
-    if (process.env.NODE_ENV === "production") {
+    if (NODE_ENV === "production") {
       LogRocket.init("fgy1dh/protopio");
     }
   })
