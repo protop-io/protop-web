@@ -48,12 +48,12 @@ const Roadmap = () => (
     <p>
       It won't be any different than a typical package manager from this perspective, with the exception that it will be implemented in gRPC.
       It also means a more centralized way of retrieving protos that are in the registry simply by version number, a la:
-      <Code language="json" code={`{
+    </p>
+    <Code language="json" code={`{
   "dependencies": {
     "awesomelabs/awesome-protos": "1.2.3-alpha"
   }
 }`} />
-    </p>
 
     <h3>Version 1.0 Release</h3>
     <p>
@@ -90,7 +90,7 @@ const Contribute = () => (
       If you see something that interests you in the roadmap or want to contribute to the existing codebase, <em>protop</em> is always looking for more contributors.
       The <a href="https://github.com/protop-io/protop/issues">GitHub issues page</a> is another place to find potential work to do.
       If you still don't see something but want to be involved, feel free to contact us.
-  </p>
+    </p>
   </Section>
 )
 
