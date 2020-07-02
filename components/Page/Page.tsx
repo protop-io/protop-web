@@ -22,7 +22,6 @@ export const Page = ({ title, description, children, beforeNavBar }: PageProps) 
   const { pathname } = useRouter()
 
   useEffect(() => {
-    console.log("NODE_ENV", NODE_ENV)
     if (isProduction) {
       LogRocket.init("fgy1dh/protopio");
     }

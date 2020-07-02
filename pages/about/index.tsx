@@ -28,7 +28,7 @@ const History = () => (
       The project started with the problem of sharing protobufs between codebases.
       Inspired by popular mainstream package managers like NPM and Maven as well as prominent tools like Gradle and Git,
       protop first materialized in mid 2019 as a small proof-of-concept.
-  </p>
+    </p>
   </Section>
 )
 
