@@ -4,6 +4,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import LogRocket from 'logrocket';
 import getConfig from 'next/config'
+import ReactGA from 'react-ga';
 
 const { publicRuntimeConfig } = getConfig()
 const { NODE_ENV } = publicRuntimeConfig
@@ -16,14 +17,22 @@ type PageProps = PropsWithChildren<{
   description: string
 }>
 
+const isProduction = NODE_ENV === "production"
+
 export const Page = ({ title, description, children, beforeNavBar }: PageProps) => {
+  const { pathname } = useRouter()
+
   useEffect(() => {
-    if (NODE_ENV === "production") {
+    if (isProduction) {
       LogRocket.init("fgy1dh/protopio");
     }
-  })
+    ReactGA.initialize("UA-171537767-1")
+  }, [])
 
-  const { pathname } = useRouter()
+  useEffect(() => {
+    ReactGA.pageview(pathname)
+  })
+  
   return (
     <Fragment>
       <Head>
