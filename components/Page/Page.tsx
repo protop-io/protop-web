@@ -1,7 +1,8 @@
-import { Fragment, PropsWithChildren, ReactNode, JSXElementConstructor, ReactElement } from "react"
+import { Fragment, PropsWithChildren, useEffect } from "react"
 import { NavBar } from "../NavBar"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import LogRocket from 'logrocket';
 
 import styles from "./styles.module.css"
 
@@ -12,6 +13,12 @@ type PageProps = PropsWithChildren<{
 }>
 
 export const Page = ({ title, description, children, beforeNavBar }: PageProps) => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") {
+      LogRocket.init("fgy1dh/protopio");
+    }
+  })
+
   const { pathname } = useRouter()
   return (
     <Fragment>
