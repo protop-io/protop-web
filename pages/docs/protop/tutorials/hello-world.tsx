@@ -2,7 +2,7 @@ import { DocsPage } from "../../../../components/Docs/DocsPage"
 import { Section } from "../../../../components/Section"
 import { MenuItem } from "../../../../components/Docs/DocsMenu"
 import EmphasizedNote from "../../../../components/EmphasizedNote/EmphasizedNote"
-import Head from "next/head"
+import styles from "./styles.module.css"
 
 export default () => (
   <DocsPage
@@ -12,8 +12,10 @@ export default () => (
     <Section>
       <h1>Hello World</h1>
       <EmphasizedNote>
-        <em>Coming Soon!</em> For now, checkout{" "}
-        <a href="https://medium.com/@jefferyshivers/create-a-public-api-with-grpc-ade4a8bfd1fc">the original tutorial</a>.
+        <p className={styles.noPadding}>
+          <em>Coming Soon!</em> For now, checkout{" "}
+          <a href="https://medium.com/@jefferyshivers/create-a-public-api-with-grpc-ade4a8bfd1fc">the original tutorial</a>.
+        </p>
       </EmphasizedNote>
     </Section>
   </DocsPage>

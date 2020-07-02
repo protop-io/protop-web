@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Section } from '../components/Section';
 import { GRPCConf2020Banner } from '../components/GRPCConf2020Banner';
 import { Code } from '../components/Code';
+import EmphasizedNote from '../components/EmphasizedNote/EmphasizedNote';
 
 const HeroBannerSection = () => (
   <section className={styles.banner}>
@@ -54,7 +55,17 @@ $ ./install.sh`} />
 
 const Explanation = () => (
   <Section>
-  // TODO graphic explanation here...
+    <EmphasizedNote>
+      <p className={styles.noPadding}>
+        protop enables you to organize and compose protobuf definitions in small, modular packages.
+      </p>
+      <p>
+        It makes it easier to share protobufs across codebases and to keep definitions separate from their implementations.
+      </p>
+    </EmphasizedNote>
+    <div className={styles.flowDiagramContainer}>
+      <img className={styles.flowDiagram} src="/flow_diagram.png" alt="protop flow diagram" />
+    </div>
   </Section>
 )
 
@@ -90,8 +101,8 @@ export default () => {
     >
       <main>
         <HeroBannerSection />
+        <Explanation />
         <InstallSection />
-        {/* <Explanation /> */}
         <CardsSection />
       </main>
     </Page>

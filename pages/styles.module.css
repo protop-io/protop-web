@@ -58,6 +58,26 @@
   }
 }
 
+.noPadding {
+  padding: 0;
+}
+
+.flowDiagramContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 16px 16px;
+}
+
+.flowDiagram {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
 .cardsContainer {
   padding: 16px 0;
   flex: 1;

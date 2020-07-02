@@ -7,5 +7,5 @@ export default ({ children }: PropsWithChildren<{}>) => (
     <div className={styles.note}>
       {children}
     </div>
-  </div >
+  </div>
 )

@@ -8,8 +8,10 @@ import { Code } from "../../components/Code";
 const Mission = () => (
   <Section>
     <EmphasizedNote>
-      protop is open-sourced and focused on a simple mission:{' '}
-      <em>to make APIs easier to create and use</em>.
+      <p className={styles.noPadding}>
+        protop is open-sourced and focused on a simple mission:{' '}
+        <em>to make APIs easier to create and use</em>.
+      </p>
     </EmphasizedNote>
     <div className={styles.logoContainer}>
       <img src="/logo.png" className={styles.logo} />
