@@ -64,7 +64,7 @@ const Explanation = () => (
       </p>
     </EmphasizedNote>
     <div className={styles.flowDiagramContainer}>
-      <img className={styles.flowDiagram} src="/flow_diagram.png" alt="protop flow diagram" />
+      <img className={styles.flowDiagram} src="/flow-diagram.png" alt="protop flow diagram" />
     </div>
   </Section>
 )
