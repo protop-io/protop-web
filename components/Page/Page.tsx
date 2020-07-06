@@ -37,7 +37,7 @@ export const Page = ({ title, description, children, beforeNavBar }: PageProps) 
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta property="og:image" content="https://protop.io/logo_with_blue_background_120x63.png" />
+        <meta property="og:image" content="http://protop.io/logo_with_blue_background_120x63.png" />
         <meta property="og:image:secure" content="https://protop.io/logo_with_blue_background_120x63.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:alt" content="protop logo" />
