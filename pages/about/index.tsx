@@ -9,8 +9,9 @@ const Mission = () => (
   <Section>
     <EmphasizedNote>
       <p className={styles.noPadding}>
-        protop is open-sourced and focused on a simple mission:{' '}
-        <em>to make APIs easier to create and use</em>.
+        protop is open-sourced and focused on protop's mission is to enable development of protocol buffers and gRPC across distributed systems.
+        Before protop, there was not an intuitive way to do this, which often leads to compromises in how projects (that use protocol buffers) are developed.
+        With this tool, developers can create cleaner projects and work more intuitively in collaborative / distributed contexts.
       </p>
     </EmphasizedNote>
     <div className={styles.logoContainer}>
