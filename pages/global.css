@@ -102,6 +102,7 @@ em {
 /* Make links colored, but only in the main content. */
 main a {
 	color: rgb(19,61,96);
+	font-weight: 500;
 }
 pre {
 	overflow: auto;

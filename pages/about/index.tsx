@@ -9,9 +9,11 @@ const Mission = () => (
   <Section>
     <EmphasizedNote>
       <p className={styles.noPadding}>
-        protop is open-sourced and focused on protop's mission is to enable development of protocol buffers and gRPC across distributed systems.
-        Before protop, there was not an intuitive way to do this, which often leads to compromises in how projects (that use protocol buffers) are developed.
-        With this tool, developers can create cleaner projects and work more intuitively in collaborative / distributed contexts.
+        protop is a package manager for protocol buffers with a mission to simplify the development of gRPC (and anything else that uses protocol buffers).
+      </p>
+      <p>
+        Without protop, there isn't an intuitive way to mantain protobufs, and this often leads to compromises in how we compose projects.
+        With protop, developers can create cleaner projects in collaborative / distributed contexts and keep their protos small, composable, and totally separate from their implementations.
       </p>
     </EmphasizedNote>
     <div className={styles.logoContainer}>
@@ -91,6 +93,14 @@ const Contribute = () => (
       If you see something that interests you in the roadmap or want to contribute to the existing codebase, <em>protop</em> is always looking for more contributors.
       The <a href="https://github.com/protop-io/protop/issues">GitHub issues page</a> is another place to find potential work to do.
       If you still don't see something but want to be involved, feel free to contact us.
+    </p>
+    <p>
+      View our code of conduct {' '}
+      <a 
+        href="https://github.com/protop-io/protop/blob/development/CODE_OF_CONDUCT.md"
+        target="_blank">
+        here
+      </a>.
     </p>
   </Section>
 )
