@@ -98,6 +98,7 @@ export default () => {
       title="protop"
       description="A package manager for protocol buffers."
       beforeNavBar={<GRPCConf2020Banner />}
+      includeSearchBar
     >
       <main>
         <HeroBannerSection />
