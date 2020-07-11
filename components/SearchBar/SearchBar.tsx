@@ -4,7 +4,7 @@ import { useState, Fragment } from "react"
 /**
  * Sign up for updates.
  */
-const SignUpForUpdates = () => {
+const SignUpForUpdates = ({ close }) => {
   const [fields, setFields] = useState({ name: "", email: "" })
 
   const encode = (data) => {
@@ -19,8 +19,11 @@ const SignUpForUpdates = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "subscribe", ...fields })
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+      .then(close)
+      .catch(error => {
+        console.error(error)
+        close()
+      });
 
     e.preventDefault();
   }
@@ -78,7 +81,7 @@ const Search = () => {
             type="submit">Search</button>
           <input type="hidden" name="csrftoken" value="TODO" />
         </form>
-        {focused && <SignUpForUpdates />}
+        {focused && <SignUpForUpdates close={() => setFocused(false)} />}
       </div>
     </Fragment>
   )
