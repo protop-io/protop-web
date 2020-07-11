@@ -43,6 +43,7 @@ const SignUpForUpdates = ({ close }) => {
           method="POST"
           name="subscribe"
           onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
+          <input type="hidden" name="form-name" value="subscribe" />
           <input
             className={styles.signUpForUpdatesFormInput}
             type="text" name="First Name" placeholder="Name"
