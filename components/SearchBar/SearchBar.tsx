@@ -46,12 +46,12 @@ const SignUpForUpdates = ({ close }) => {
           <input type="hidden" name="form-name" value="subscribe" />
           <input
             className={styles.signUpForUpdatesFormInput}
-            type="text" name="First Name" placeholder="Name"
+            type="text" name="name" placeholder="Name"
             onChange={e => setFields({ ...fields, name: e.target.value })}
             value={fields.name} />
           <input
             className={styles.signUpForUpdatesFormInput}
-            type="email" name="Email" placeholder="Email"
+            type="email" name="email" placeholder="Email"
             onChange={e => setFields({ ...fields, email: e.target.value })}
             value={fields.email} />
           <button className={styles.signUpForUpdatesFormButton} type="submit">Subscribe</button>
@@ -102,9 +102,19 @@ const Auth = () => (
 
 export const SearchBar = () => {
   return (
-    <div className={styles.searchBar}>
-      <Search />
-      {/* <Auth /> */}
-    </div>
+    <Fragment>
+      {/* This helps Netlify expect the form since otherwise it is only dynamically added in Javascript. */}
+      {/* @ts-ignore */}
+      <form name="subscribe" netlify-data="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+      </form>
+
+      <div className={styles.searchBar}>
+        <Search />
+        {/* <Auth /> */}
+      </div>
+    </Fragment>
+
   )
 }
