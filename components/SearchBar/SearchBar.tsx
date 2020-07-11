@@ -2,6 +2,7 @@ import styles from "./styles.module.css"
 import { useState, Fragment, useEffect } from "react"
 import sweetalert from "sweetalert"
 import ReactGA from "react-ga"
+import cx from "classnames"
 
 /**
  * Sign up for updates.
@@ -66,8 +67,26 @@ const SignUpForUpdates = ({ close }) => {
     e.preventDefault();
   }
 
+  const handleHoneypot = () => {
+    close()
+    sweetalert({
+      title: "Oh no!",
+      text: "We detected bot-like behavior. If you believe you encoutered this bug by mistake, please let us know.",
+      icon: "error",
+      buttons: {
+        report: {
+          text: "Report"
+        }
+      }
+    }).then(button => {
+      if (button === "report") {
+        // TODO
+      }
+    })
+  }
+
   return (
-    <div className={styles.signUpForUpdatesContainer}>
+    <div className={cx(styles.signUpForUpdatesContainer, styles.elevatedWithShadow)}>
       <div className={styles.signUpForUpdatesContainerInner}>
         <h2>The protop registry is coming soon 🎉</h2>
         <p>
@@ -78,7 +97,8 @@ const SignUpForUpdates = ({ close }) => {
         <form
           method="POST"
           name="subscribe"
-          onSubmit={enabled && handleSubmit} className={styles.signUpForUpdatesForm}>
+          onSubmit={enabled ? handleSubmit : null}
+          className={styles.signUpForUpdatesForm}>
           <input
             className={styles.signUpForUpdatesFormInput}
             type="text" name="name" placeholder="Name"
@@ -95,6 +115,12 @@ const SignUpForUpdates = ({ close }) => {
             type="submit">
             Subscribe
           </button>
+
+          {/* Honeypot */}
+          <input
+            className={styles.honeypot}
+            autoComplete="off"
+            onChange={handleHoneypot} />
         </form>
       </div>
     </div>
@@ -108,7 +134,11 @@ const Search = () => {
   return (
     <Fragment>
       {focused && <div className={styles.signUpForUpdatesBackdrop} onClick={() => setFocused(false)} />}
-      <div className={styles.searchContainer} onClick={() => setFocused(true)}>
+      <div
+        className={cx(styles.searchContainer, {
+          [styles.elevatedWithShadow]: focused
+        })}
+        onClick={() => setFocused(true)}>
         <form className={styles.searchForm}>
           <input
             disabled
@@ -125,7 +155,7 @@ const Search = () => {
             }}
             className={styles.searchButton}
             type="submit">Search</button>
-          <input type="hidden" name="csrftoken" value="TODO" />
+          {/* <input type="hidden" name="csrftoken" value="TODO" /> */}
         </form>
         {focused && <SignUpForUpdates close={() => setFocused(false)} />}
       </div>
@@ -148,6 +178,5 @@ export const SearchBar = () => {
         {/* <Auth /> */}
       </div>
     </Fragment>
-
   )
 }
