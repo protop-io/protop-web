@@ -15,7 +15,7 @@ const SignUpForUpdates = () => {
           Sign up for updates on the registry and other major features.
         </p>
         {/* @ts-ignore */}
-        <form netlify netlify-honeypot="bot-field"
+        <form data-netlify="true" netlify-honeypot="bot-field"
           method="post"
           name="subscribe" 
           className={styles.signUpForUpdatesForm}>
