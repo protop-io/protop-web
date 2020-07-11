@@ -117,7 +117,9 @@ export default () => {
     <Page
       title="About protop"
       description="Read about protop, the package manager for protobufs."
-      beforeNavBar={<GRPCConf2020Banner />}>
+      beforeNavBar={<GRPCConf2020Banner />}
+      includeSearchBar
+    >
       <main>
         <Mission />
         <History />

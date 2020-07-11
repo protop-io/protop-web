@@ -10,14 +10,16 @@ const { publicRuntimeConfig } = getConfig()
 const { NODE_ENV } = publicRuntimeConfig
 
 import styles from "./styles.module.css"
+import { SearchBar } from "../SearchBar";
 
 type PageProps = PropsWithChildren<{
   beforeNavBar?: React.ReactNode
   title: string
   description: string
+  includeSearchBar?: boolean
 }>
 
-export const Page = ({ title, description, children, beforeNavBar }: PageProps) => {
+export const Page = ({ title, description, children, beforeNavBar, includeSearchBar = false }: PageProps) => {
   const isProduction = NODE_ENV === "production"
   const { pathname } = useRouter()
 
@@ -59,6 +61,7 @@ export const Page = ({ title, description, children, beforeNavBar }: PageProps) 
       </Head>
       {beforeNavBar}
       <NavBar />
+      {includeSearchBar && <SearchBar />}
       {children}
       <footer className={styles.footer}>
         Copyright © 2019 - 2020
