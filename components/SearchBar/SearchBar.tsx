@@ -1,17 +1,40 @@
 import styles from "./styles.module.css"
-import { useState, Fragment } from "react"
+import { useState, Fragment, useEffect } from "react"
+import sweetalert from "sweetalert"
+import ReactGA from "react-ga"
 
 /**
  * Sign up for updates.
  */
 const SignUpForUpdates = ({ close }) => {
   const [fields, setFields] = useState({ name: "", email: "" })
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => {
+    if (!fields.email || !fields.name) {
+      setEnabled(false)
+    } else {
+      setEnabled(true)
+    }
+  }, [fields])
 
   const encode = (data) => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   }
+
+  const postGAEvent = () => ReactGA.event({
+    category: "User",
+    action: "Subscribed to updates"
+  })
+
+  const alertSuccess = () => sweetalert({
+    title: "Subscribed",
+    text: "You've successfully subscribed to updates from protop!",
+    icon: "success",
+    buttons: [true]
+  })
 
   const handleSubmit = (e) => {
     const form = {
@@ -21,17 +44,20 @@ const SignUpForUpdates = ({ close }) => {
       NAME: fields.name,
       EMAIL: fields.email
     }
-
     // via mailchimp
     fetch("https://protop.us19.list-manage.com/subscribe/post", {
       method: "POST",
       mode: "no-cors",
-      headers: { 
-        "Content-Type": "application/x-www-form-urlencoded" 
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       body: encode(form)
     })
-      .then(close)
+      .then(() => {
+        postGAEvent()
+        alertSuccess()
+        close()
+      })
       .catch(error => {
         console.error(error)
         close()
@@ -52,7 +78,7 @@ const SignUpForUpdates = ({ close }) => {
         <form
           method="POST"
           name="subscribe"
-          onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
+          onSubmit={enabled && handleSubmit} className={styles.signUpForUpdatesForm}>
           <input
             className={styles.signUpForUpdatesFormInput}
             type="text" name="name" placeholder="Name"
@@ -63,7 +89,12 @@ const SignUpForUpdates = ({ close }) => {
             type="email" name="email" placeholder="Email"
             onChange={e => setFields({ ...fields, email: e.target.value })}
             value={fields.email} />
-          <button className={styles.signUpForUpdatesFormButton} type="submit">Subscribe</button>
+          <button
+            className={styles.signUpForUpdatesFormButton}
+            disabled={!enabled}
+            type="submit">
+            Subscribe
+          </button>
         </form>
       </div>
     </div>

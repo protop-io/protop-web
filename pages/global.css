@@ -71,6 +71,10 @@ p {
 	line-height: 1.4em;
 	padding-top: 16px;
 }
+input {
+	-webkit-appearance: none;
+	border-radius: unset;
+}
 
 h1 {
 	font-size: 2.4em;
@@ -125,3 +129,27 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
 
+/* Form reset */
+textarea, select, input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-background-clip: padding;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	background-color: unset;
+	color: #000;
+	outline: none;
+	margin: unset;
+	padding: 0;
+	text-align: left;
+	font-size: unset;
+	height: unset;
+	vertical-align: middle;
+}
