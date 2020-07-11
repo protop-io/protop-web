@@ -5,6 +5,25 @@ import { useState, Fragment } from "react"
  * Sign up for updates.
  */
 const SignUpForUpdates = () => {
+  const [fields, setFields] = useState({ name: "", email: "" })
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "subscribe", ...fields })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  }
 
   return (
     <div className={styles.signUpForUpdatesContainer}>
@@ -15,16 +34,17 @@ const SignUpForUpdates = () => {
           Sign up for updates on the registry and other major features.
         </p>
         {/* @ts-ignore */}
-        <form data-netlify="true" netlify-honeypot="bot-field"
-          method="post"
-          name="subscribe" 
-          className={styles.signUpForUpdatesForm}>
-          
-          {/* For netlify: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/ */}
-          <input type="hidden" name="form-name" value="subscribe" />
-
-          <input className={styles.signUpForUpdatesFormInput} type="text" name="First Name" placeholder="Name" />
-          <input className={styles.signUpForUpdatesFormInput} type="email" name="Email" placeholder="Email" />
+        <form onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
+          <input
+            className={styles.signUpForUpdatesFormInput}
+            type="text" name="First Name" placeholder="Name"
+            onChange={e => setFields({ ...fields, name: e.target.value })}
+            value={fields.name} />
+          <input
+            className={styles.signUpForUpdatesFormInput}
+            type="email" name="Email" placeholder="Email"
+            onChange={e => setFields({ ...fields, email: e.target.value })}
+            value={fields.email} />
           <button className={styles.signUpForUpdatesFormButton} type="submit">Subscribe</button>
         </form>
       </div>
