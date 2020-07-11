@@ -22,9 +22,13 @@ const SignUpForUpdates = ({ close }) => {
       EMAIL: fields.email
     }
 
+    // via mailchimp
     fetch("https://protop.us19.list-manage.com/subscribe/post", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      mode: "no-cors",
+      headers: { 
+        "Content-Type": "application/x-www-form-urlencoded" 
+      },
       body: encode(form)
     })
       .then(close)
