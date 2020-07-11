@@ -14,10 +14,18 @@ const SignUpForUpdates = ({ close }) => {
   }
 
   const handleSubmit = (e) => {
-    fetch("/", {
+    const form = {
+      "form-name": "subscribe",
+      u: "3916fdd752e3bdbf3ff166053",
+      id: "e5fec4d769",
+      NAME: fields.name,
+      EMAIL: fields.email
+    }
+
+    fetch("https://protop.us19.list-manage.com/subscribe/post", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "subscribe", ...fields })
+      body: encode(form)
     })
       .then(close)
       .catch(error => {
@@ -38,12 +46,9 @@ const SignUpForUpdates = ({ close }) => {
         </p>
         {/* @ts-ignore */}
         <form
-          netlify-honeypot="bot-field"
-          data-netlify="true"
           method="POST"
           name="subscribe"
           onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
-          <input type="hidden" name="form-name" value="subscribe" />
           <input
             className={styles.signUpForUpdatesFormInput}
             type="text" name="name" placeholder="Name"
@@ -103,13 +108,6 @@ const Auth = () => (
 export const SearchBar = () => {
   return (
     <Fragment>
-      {/* This helps Netlify expect the form since otherwise it is only dynamically added in Javascript. */}
-      {/* @ts-ignore */}
-      <form name="subscribe" netlify-data="true" netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-      </form>
-
       <div className={styles.searchBar}>
         <Search />
         {/* <Auth /> */}
