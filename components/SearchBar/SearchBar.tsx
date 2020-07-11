@@ -37,7 +37,12 @@ const SignUpForUpdates = ({ close }) => {
           Sign up for updates on the registry and other major features.
         </p>
         {/* @ts-ignore */}
-        <form onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
+        <form
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          method="POST"
+          name="subscribe"
+          onSubmit={handleSubmit} className={styles.signUpForUpdatesForm}>
           <input
             className={styles.signUpForUpdatesFormInput}
             type="text" name="First Name" placeholder="Name"
