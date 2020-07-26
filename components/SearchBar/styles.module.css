@@ -1,7 +1,7 @@
 .searchBar {
   padding: 24px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
 }
@@ -9,6 +9,7 @@
 .searchContainer {
   position: relative;
   width: 100%;
+  max-width: 1200px;
   height: 40px;
   z-index: 13;
 }
@@ -106,41 +107,9 @@
   margin-left: 8px;
 }
 
-.authContainer {
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 0 0 16px;
-  height: 40px;
-}
-.signInButton,
-.signUpButton {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  white-space: nowrap;
-  padding: 0 16px;
-  background: none;
-  border-radius: 4px;;
-}
-.signInButton {
-  margin-right: 8px;
-}
-.signInButton:hover,
-.signUpButton:hover {
-  background: rgb(235, 235, 235);
-}
-
 @media screen and (max-width: 800px) {
   .searchBar {
     flex-wrap: wrap-reverse;
-  }
-  .authContainer {
-    width: 100%;
-    padding: 0 0 0 0;
-    justify-content: flex-end;
-    margin-bottom: 16px;
   }
   .signUpForUpdatesForm {
     flex-wrap: wrap;

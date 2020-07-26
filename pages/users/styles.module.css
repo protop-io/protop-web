@@ -1,0 +1,82 @@
+
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.profileBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgb(19,61,96);
+  background: linear-gradient(90deg, rgb(19,61,96) 0%, rgba(9,118,121,1) 100%);
+}
+.profilePicture {
+  margin-top: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid rgb(19,61,96);
+  background-color: white;
+  z-index: 11;
+}
+.profileName {
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+}
+.profileMeta {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 1200px;
+}
+
+.h2 {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px 0 12px;
+}
+.count {
+  margin-left: 8px;
+  font-size: 0.7em;
+}
+.organizations, .packages {
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  flex-wrap: wrap;
+  display: flex;
+}
+.organization {
+  border: 1px solid rgb(19,61,96);
+  color: 1px solid rgb(19,61,96);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 0 16px;
+  background-color: white;
+  transition: background-color 200ms, color 200ms;
+}
+.organization:hover {
+  cursor: pointer;
+  background-color: rgb(19,61,96);
+  color: white;
+}

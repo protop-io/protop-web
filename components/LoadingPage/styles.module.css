@@ -1,0 +1,42 @@
+.loadingBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgb(19,61,96), rgb(30, 156, 194), rgba(9,118,121,1), rgb(30, 156, 194));
+  background-size: 400% 400%;
+  animation: rainbow 8s ease infinite;
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.loadingImage {
+  position: relative;
+  width: calc(100% - 24px);
+  height: auto;
+  background-color: white;
+  border-radius: 50%;
+}

@@ -1,7 +1,7 @@
 .nav {
   position: relative;
   background-color: rgb(250, 250, 250);
-  z-index: 10;
+  z-index: 15;
 }
 
 .mainNavContainer {
@@ -35,7 +35,7 @@
 }
 
 .linksContainer {
-  display: block;
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
@@ -85,7 +85,7 @@
   align-items: center;
   height: 100%;
 }
-.linksContainer > ul > li:not(:last-of-type) {
+.linksContainer > ul > li {
   padding-right: 32px;
 }
 
