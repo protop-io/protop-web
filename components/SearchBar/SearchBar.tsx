@@ -163,19 +163,11 @@ const Search = () => {
   )
 }
 
-const Auth = () => (
-  <div className={styles.authContainer}>
-    <button className={styles.signInButton}>Login</button>
-    <button className={styles.signUpButton}>Sign up</button>
-  </div>
-)
-
 export const SearchBar = () => {
   return (
     <Fragment>
       <div className={styles.searchBar}>
         <Search />
-        {/* <Auth /> */}
       </div>
     </Fragment>
   )

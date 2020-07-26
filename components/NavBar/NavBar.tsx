@@ -2,6 +2,8 @@ import Link from "next/link"
 import styles from "./styles.module.css"
 import { Fragment, useState } from "react"
 import cx from "classnames"
+import { Auth } from "./Auth"
+import { MobileAuth } from "./Auth/MobileAuth"
 
 const MenuIcon = ({ onClick }) => (
   <div className={styles.menuIcon} onClick={onClick}>
@@ -29,6 +31,7 @@ const MobileNavigation = ({ setOpen, open }) => {
             >
               <img src="/github-mark.png" />
             </a></li>
+            <MobileAuth />
           </ul>
         </div>
       </div>
@@ -47,9 +50,6 @@ const MainNavigation = ({ toggleMobileNavigation }) => (
     </div>
     <div className={styles.linksContainer}>
       <ul>
-        <li><Link href="/#install"><a>Install</a></Link></li>
-        <li><Link href="/about"><a>About</a></Link></li>
-        <li><Link href="/docs/protop"><a>Docs</a></Link></li>
         <li><a
           rel="noopener"
           href="https://github.com/protop-io"
@@ -57,7 +57,11 @@ const MainNavigation = ({ toggleMobileNavigation }) => (
         >
           <img src="/github-mark.png" />
         </a></li>
+        <li><Link href="/#install"><a>Install</a></Link></li>
+        <li><Link href="/about"><a>About</a></Link></li>
+        <li><Link href="/docs/protop"><a>Docs</a></Link></li>
       </ul>
+      <Auth />
     </div>
 
     <div className={styles.drawerButton}>
