@@ -54,8 +54,8 @@ const Profile = ({ username }) => {
 
   useEffect(() => {
     if (data) {
-      if (data.user && data.user[0]) {
-        setUser(data.user[0])
+      if (data.userByUsername && data.userByUsername[0]) {
+        setUser(data.userByUsername[0])
       } else {
         push('/404')
       }
