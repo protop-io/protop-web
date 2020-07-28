@@ -45,15 +45,14 @@ const Content = ({ user }) => (
   </div>
 )
 
-const Profile = ({ nickname }) => {
+const Profile = ({ username }) => {
   const [user, setUser] = useState(null)
   const { loading, error, data } = useQuery(GET_USER, {
-    variables: { nickname }
+    variables: { username }
   })
   const { push } = useRouter()
 
   useEffect(() => {
-    console.log('data', data)
     if (data) {
       if (data.user && data.user[0]) {
         setUser(data.user[0])
@@ -80,7 +79,7 @@ const Profile = ({ nickname }) => {
         <div className={styles.profile}>
           <div className={styles.profileBackground} />
           <img src={user.picture} className={styles.profilePicture} />
-          <h1 className={styles.profileName}>{user.nickname}</h1>
+          <h1 className={styles.profileName}>{user.username}</h1>
           <div className={styles.profileMeta}>
             Joined {toDate(user.joined)}
           </div>
@@ -96,7 +95,7 @@ export default () => {
 
   return username ? (
     <Page title={`protop | ${username}`} description={`protop user: ${username}`} includeSearchBar={true}>
-      <Profile nickname={username} />
+      <Profile username={username} />
     </Page>
   ) : <LoadingPage />
 }
