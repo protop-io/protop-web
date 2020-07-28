@@ -14,7 +14,7 @@ const Login = ({ login }) => (
 const AuthenticatedOptions = ({ user, logout }) => (
   <Fragment>
     <li>
-      <Link href={`/users/${user.nickname}`}>
+      <Link href={`/users/${user.username}`}>
         <a>
           Profile
         </a>

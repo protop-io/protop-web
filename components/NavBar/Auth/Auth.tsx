@@ -88,7 +88,7 @@ const Profile = ({ user }) => {
         [styles.profileDropdownOpen]: open
       })}>
         <ul className={styles.profileDropdownList}>
-          <DropdownItem title={user.nickname} linkTo={`/users/${user.nickname}`} icon={"account_circle"}>
+          <DropdownItem title={user.username} linkTo={`/users/${user.username}`} icon={"account_circle"}>
             View profile and organizations
           </DropdownItem>
 

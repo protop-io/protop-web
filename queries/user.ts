@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const GET_USER = gql`
-query GetUser($nickname: String!) {
-  user(nickname: $nickname) {
-    nickname
+query GetUser($username: String!) {
+  user(username: $username) {
+    username
     joined
     picture
     packages {
