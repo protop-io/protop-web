@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_ENV=dev next dev",
     "build": "next build",
     "export": "yarn build && next export",
     "start": "next start -p $PORT"

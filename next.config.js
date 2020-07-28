@@ -4,6 +4,9 @@ module.exports = {
     auth0: {
       domain: process.env.AUTH0_DOMAIN,
       clientId: process.env.AUTH0_CLIENTID
+    },
+    bff: {
+      URL: process.env.BFF_URL
     }
   }
 }

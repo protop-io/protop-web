@@ -9,7 +9,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client';
 
 const { publicRuntimeConfig } = getConfig()
-const { NODE_ENV, auth0 } = publicRuntimeConfig
+const { NODE_ENV, auth0, bff } = publicRuntimeConfig
 
 import styles from "./styles.module.css"
 import { SearchBar } from "../SearchBar";
@@ -90,7 +90,7 @@ export const Page = ({ title, description, children, beforeNavBar, includeSearch
   })
 
   const graphQLClient = new ApolloClient({
-    uri: 'http://localhost:4000/graphql',
+    uri: bff.URL,
     cache: new InMemoryCache()
   });
 
