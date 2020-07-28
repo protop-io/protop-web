@@ -1,7 +1,6 @@
 import { Page } from "../../components/Page";
 import styles from "./styles.module.css"
 import { Section } from "../../components/Section";
-import { GRPCConf2020Banner } from "../../components/GRPCConf2020Banner";
 import EmphasizedNote from "../../components/EmphasizedNote/EmphasizedNote";
 import { Code } from "../../components/Code";
 
@@ -117,7 +116,6 @@ export default () => {
     <Page
       title="About protop"
       description="Read about protop, the package manager for protobufs."
-      beforeNavBar={<GRPCConf2020Banner />}
       includeSearchBar
     >
       <main>
