@@ -10,6 +10,14 @@ const { publicRuntimeConfig } = getConfig()
 
 const { auth0, bff } = publicRuntimeConfig
 
+const getWindowOrigin = () => {
+  if (typeof window !== "undefined") {
+    return window.origin
+  } else {
+    throw new Error("Failed to discover window.origin")
+  }
+}
+
 const ChildrenWithQueriedUserDetails = ({ children, setUser, nickname }) => {
   const { user } = useContext(AuthContext)
 
@@ -44,8 +52,12 @@ const ChildrenWithAuthContext = ({ children }) => {
   const [context, setContext] = useState(initialContext)
   
   const setUser = (user) => {
-    setContext({ user, isLoading: false })
+    setContext({ ...context, user, isLoading: false })
   }
+
+  useEffect(() => {
+    setContext({ ...context, logoutCallbackUrl: getWindowOrigin() })
+  }, [])
 
   useEffect(() => {
     if (!context.user && !isLoading && !isAuthenticated) {
@@ -69,9 +81,7 @@ const ChildrenWithAuthContext = ({ children }) => {
 export default function ({ Component, pageProps }) {
   const [callbackUri, setCallbackUri] = useState(null)
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCallbackUri(window.origin)
-    }
+    setCallbackUri(getWindowOrigin())
   }, [])
 
   const Children = () => (

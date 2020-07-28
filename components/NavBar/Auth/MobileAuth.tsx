@@ -15,7 +15,7 @@ const Login = () => {
 
 const AuthenticatedOptions = () => {
   const { logout } = useAuth0()
-  const { user } = useContext(AuthContext)
+  const { user, logoutCallbackUrl } = useContext(AuthContext)
 
   return (
     <Fragment>
@@ -29,7 +29,7 @@ const AuthenticatedOptions = () => {
           <a>Account</a>
         </Link>
       </li>
-      <li onClick={() => logout()}>
+      <li onClick={() => logout({ returnTo: logoutCallbackUrl })}>
         <a>Logout</a>
       </li>
     </Fragment>

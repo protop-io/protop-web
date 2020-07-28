@@ -74,7 +74,7 @@ const Colors = () => {
 }
 
 const Profile = () => {
-  const { user } = useContext(AuthContext)
+  const { user, logoutCallbackUrl } = useContext(AuthContext)
   const [open, setOpen] = useState(false)
   const { logout } = useAuth0()
 
@@ -100,7 +100,10 @@ const Profile = () => {
             <Colors />
           </DropdownItem> */}
 
-          <DropdownItem title={"Logout"} onClick={() => logout()} icon={"exit_to_app"} />
+          <DropdownItem
+            title={"Logout"}
+            onClick={() => logout({ returnTo: logoutCallbackUrl })}
+            icon={"exit_to_app"} />
         </ul>
       </div>
     </div>

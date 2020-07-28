@@ -8,9 +8,11 @@ export type UserContext = {
 export type ContextProps = {
   user: UserContext
   isLoading: boolean
+  logoutCallbackUrl?: string
 }
 
 export const AuthContext = createContext<ContextProps>({
   user: null,
-  isLoading: true
+  isLoading: true,
+  logoutCallbackUrl: null
 })
