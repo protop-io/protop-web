@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { LoadingPage } from "../../components/LoadingPage"
 import styles from "./styles.module.css"
 import { useQuery } from "@apollo/client"
-import { GET_USER } from "../../queries/user"
+import { GET_USER_BY_USERNAME } from "../../queries/user"
 import Link from "next/link"
 import moment from "moment"
 
@@ -47,7 +47,7 @@ const Content = ({ user }) => (
 
 const Profile = ({ username }) => {
   const [user, setUser] = useState(null)
-  const { loading, error, data } = useQuery(GET_USER, {
+  const { loading, error, data } = useQuery(GET_USER_BY_USERNAME, {
     variables: { username }
   })
   const { push } = useRouter()
@@ -63,7 +63,7 @@ const Profile = ({ username }) => {
   }, [data])
 
   if (error) {
-    console.error('err', error)
+    console.error('Error finding user', error)
     return null
   }
 

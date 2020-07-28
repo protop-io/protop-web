@@ -1,11 +1,12 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./styles.module.css"
 import Link from "next/link";
-import { useState, PropsWithChildren, Fragment } from "react";
+import { useState, PropsWithChildren, Fragment, useContext } from "react";
 import cx from "classnames"
 import Icon from '@material-ui/core/Icon';
 import Radio from '@material-ui/core/Radio';
 import { RadioGroup, FormControlLabel } from "@material-ui/core";
+import { AuthContext } from "../../Page/AuthContext";
 
 type DropdownItemProps = PropsWithChildren<{
   title: string
@@ -25,7 +26,6 @@ const DropdownItem = ({ title, children, onClick, linkTo, icon }: DropdownItemPr
     </div>
   </div>
 
-
   return (
     <li onClick={onClick} className={styles.profileDropdownListItem}>
       <div className={styles.profileDropdownListItemIconContainer}>
@@ -42,7 +42,6 @@ const DropdownItem = ({ title, children, onClick, linkTo, icon }: DropdownItemPr
             <Contents />
           )}
       </div>
-
     </li>
   )
 }
@@ -74,7 +73,8 @@ const Colors = () => {
   )
 }
 
-const Profile = ({ user }) => {
+const Profile = () => {
+  const { user } = useContext(AuthContext)
   const [open, setOpen] = useState(false)
   const { logout } = useAuth0()
 
@@ -107,25 +107,22 @@ const Profile = ({ user }) => {
   )
 }
 
-const Login = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    className={styles.signInButton}
-  >
-    Login
-  </button>
-)
+const Login = () => {
+  const { loginWithRedirect } = useAuth0()
+  return (
+    <button
+      onClick={() => loginWithRedirect()}
+      className={styles.signInButton}
+    >
+      Login
+    </button>
+  )
+}
 
 export const Auth = () => {
-  const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0()
+  const { isLoading, user } = useContext(AuthContext)
 
   return <div className={styles.authContainer}>
-    {isLoading ? (
-      null
-    ): isAuthenticated ? (
-      <Profile user={user} />
-    ) : (
-        <Login onClick={loginWithRedirect} />
-      )}
+    {isLoading ? <span>...</span> : user ? <Profile /> : <Login />}
   </div>
 }

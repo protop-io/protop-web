@@ -1,41 +1,15 @@
-import { PropsWithChildren, useEffect, useState } from "react"
+import { PropsWithChildren, useEffect, useState, useContext, Fragment } from "react"
 import { NavBar } from "../NavBar"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import LogRocket from 'logrocket';
 import getConfig from 'next/config'
 import ReactGA from 'react-ga';
-import { Auth0Provider } from "@auth0/auth0-react";
-import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client';
-
-const { publicRuntimeConfig } = getConfig()
-const { NODE_ENV, auth0, bff } = publicRuntimeConfig
-
 import styles from "./styles.module.css"
 import { SearchBar } from "../SearchBar";
 
-const PageWithAuth = ({ children }) => {
-  const [callbackUri, setCallbackUri] = useState(null)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCallbackUri(window.origin)
-    }
-  }, [])
-
-  return (
-    callbackUri ? (
-      <Auth0Provider
-        domain={auth0.domain}
-        clientId={auth0.clientId}
-        redirectUri={callbackUri}
-      >
-        {children}
-      </Auth0Provider>
-    ) : (
-        children
-      )
-  )
-}
+const { publicRuntimeConfig } = getConfig()
+const { NODE_ENV } = publicRuntimeConfig
 
 const PageHead = ({ title, description, pathname }) => (
   <Head>
@@ -89,23 +63,16 @@ export const Page = ({ title, description, children, beforeNavBar, includeSearch
     ReactGA.pageview(pathname)
   })
 
-  const graphQLClient = new ApolloClient({
-    uri: bff.URL,
-    cache: new InMemoryCache()
-  });
-
   return (
-    <ApolloProvider client={graphQLClient}>
-      <PageWithAuth>
-        <PageHead title={title} description={description} pathname={pathname} />
-        {beforeNavBar}
-        <NavBar />
-        {includeSearchBar && <SearchBar />}
-        {children}
-        <footer className={styles.footer}>
-          Copyright © 2019 - 2020
-        </footer>
-      </PageWithAuth>
-    </ApolloProvider>
+    <Fragment>
+      <PageHead title={title} description={description} pathname={pathname} />
+      {beforeNavBar}
+      <NavBar />
+      {includeSearchBar && <SearchBar />}
+      {children}
+      <footer className={styles.footer}>
+        Copyright © 2019 - 2020
+      </footer>
+    </Fragment>
   )
 } 
